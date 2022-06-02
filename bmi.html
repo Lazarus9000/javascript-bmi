@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function validateForm() {
+  let weight = document.forms["myForm"]["Weight"].value;
+  let height = document.forms["myForm"]["Height"].value;
+  //console.log(weight)
+  //console.log(height)
+  let bmi = weight / ((height)^2);
+  //console.log(bmi)
+  //alert("hej");
+  //alert(bmi);
+  document.getElementById("Resultat").innerHTML = "BMI: " + bmi;
+  
+  if(bmi >25) {
+	document.getElementById('myImage').src='fat2.jpeg';
+  } else {
+	document.getElementById('myImage').src='';
+  }
+}
+</script>
+</head>
+<body>
+
+<h2>BMI beregner</h2>
+
+<form name="myForm" action="./" onsubmit="return validateForm()" method="post">
+  Weight: <input type="text" name="Weight">
+  Height: <input type="text" name="Height">
+  
+</form>
+
+<button type="button" onclick="validateForm()">Try it</button>
+
+<p id="Resultat">Awaiting input</p>
+<img id="myImage" src="" style="width:300px">
+</body>
+</html>
